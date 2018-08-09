@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7.css">
+    <script src="lib/vue-2.4.0.js"></script>
+</head> 
+<style>
+    .ball {
+        height: 15px;
+        width: 15px;
+        background: red;
+    }
+</style>
+<body>
+    <div class="container">
+        
+        <button type="button" class="btn btn-primary" @click="flag=!flag">button</button>
+        <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+            <div  v-show="flag" class="ball"></div>
+        </transition>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:'.container',
+        data:{
+            flag:false
+        },
+        methods:{
+            beforeEnter(el){
+                el.style.transform='translate(0,0)';
+            },
+            enter(el,done){
+                el.offsetHeight
+                el.style.transform='translate(200px,200px)';
+                el.style.transition='all 1s ease';
+                done();
+            },
+            afterEnter(el) {
+                this.flag=!this.flag;
+            }
+        }
+
+    })
+</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7.css">
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div class="commentList">
+        <mycom @func = "loadFromStor">
+
+        </mycom>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in list" :key=item.id>
+                <span class="badge">{{item.user}}</span>
+                {{item.comment}}
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+<template id="addComment">
+    <div>
+        <div class="form-group">
+            <label>用户名</label>
+            <input type="text" class="form-control" placeholder="用户名" v-model="user">
+        </div>
+        <div class="form-group">
+            <label>评论内容</label>
+            <input type="textarea" class="form-control" placeholder="评论内容" v-model="comment">
+        </div>
+        <button class="btn btn-primary" @click="add">确定</button>
+    </div>
+</template>
+
+<script>
+    var comBox = {
+        template: '#addComment',
+        data() {
+            return {
+                user: '',
+                comment: ''
+            }
+        },
+        methods: {
+            add() {
+                var list = JSON.parse(localStorage.getItem('localCom') || '[]');
+                var item = {
+                    id: Date.now(),
+                    user: this.user,
+                    comment: this.comment
+                };
+                list.unshift(item);
+                localStorage.setItem('localCom', JSON.stringify(list));
+                this.user=this.comment='';
+                this.$emit('func');
+            }
+        },
+    }
+    var app = new Vue({
+        el: '.commentList',
+        data: {
+            list: [{
+                id: Date.now(),
+                user: '张三',
+                comment: '我的名字是张三'
+            }, {
+                id: Date.now(),
+                user: '李四',
+                comment: '我的名字是李四'
+            }, {
+                id: Date.now(),
+                user: '王五',
+                comment: '我的名字是王五'
+            }]
+        },
+        created() {
+            this.loadFromStor();
+        },
+        methods: {
+            loadFromStor() {
+                var list = JSON.parse(localStorage.getItem('localCom') || '[]');
+                console.log(list);
+
+                this.list = list;
+            }
+        },
+        components: {
+            'mycom': comBox
+        }
+
+
+    })
+</script>
+
+</html>

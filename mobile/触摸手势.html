@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        var box = document.querySelector('.box');
+
+        var touchMethod = function (ele, callbackLeft, callbackRight) {
+
+            var startX = 0;
+            var distanceX = 0;
+            ele.addEventListener('touchstart', function (e) {
+                startX = e.touches[0].clientX;
+            })
+
+            ele.addEventListener('touchmove', function (e) {
+                distanceX = e.touches[0].clientX-startX;
+
+            })
+
+            ele.addEventListener('touchend', function (e) {
+                if (distanceX < -50) {
+                    callbackLeft.call(this,e);
+                           
+                } else if (distanceX > 50) {
+                    callbackRight()
+                }
+            })
+        }
+
+        var leftT = function (e) {
+            console.log('左滑'); 
+            console.log(this);
+            console.log(e);     
+        }
+
+        var rightT = function () {
+            console.log('右滑');
+        }
+
+        touchMethod(box,leftT,rightT)
+    </script>
+</body>
+
+</html>

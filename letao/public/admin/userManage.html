@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 禁用模块模态框 -->
+    <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">提示：</h4>
+                </div>
+                <div class="modal-body">
+                    是否要禁用用户？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="ad_side">
+        <!-- 商标 -->
+        <div class="brand">
+            <a href="index.html">ITCAST</a>
+        </div>
+        <!-- 用户 -->
+        <div class="user">
+            <img src="images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <!-- 菜单 -->
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="userManage.html" class="now">
+                        <span class="glyphicon glyphicon-user"></span> 用户管理</a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="glyphicon glyphicon-list"></span> 分类管理</a>
+                    <div class="child" style="display:none">
+                        <a href="categoryFirst.html">一级分类</a>
+                        <a href="categorySecond.html">二级分类</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="productManger.html">
+                        <span class="glyphicon glyphicon-tags"></span> 商品管理</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <!-- 内容 -->
+    <section class="ad_section menu">
+        <!-- 顶部导航 -->
+        <nav class="ad_nav">
+            <a data-menu href="javascript:;">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </a>
+            <a data-logout href="javascript:;">
+                <span class="glyphicon glyphicon-log-out" data-toggle="modal" data-target=".bs-example-sm-modal-sm"></span>
+            </a>
+        </nav>
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="index.html">管理系统</a>
+                </li>
+                <li class="active">用户管理</li>
+            </ol>
+            <div class="content">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>用户名</th>
+                            <th>电话</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="page">
+                    <ul class="pageList">
+
+                    </ul>
+                </div>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<script id="userListTlp" type="text/template">
+    <%var $ = getJquery()%>
+        <% $.each(rows,function(index,element){%>\
+            <tr>
+                <td>
+                    <%=(page-1)*size+index+1%>
+                </td>
+                <td>
+                    <%=element.username%>
+                </td>
+                <td>
+                    <%=element.mobile%>
+                </td>
+                <td>
+                    <%=element.isDelete==1?"正常":"已禁用"%>
+                </td>
+                <td>
+                    <button id="userBtn" data-id ="<%=element.id%>" type="button" data-dele="<%=element.isDelete%>"
+                        class="btn <%=element.isDelete==1?'btn-danger':'btn-primary'%>" 
+                        data-toggle="modal" data-target="#myModal"><%=element.isDelete==1?"禁用":"启用"%></button>
+                </td>
+            </tr>
+            <%})%>
+</script>
+
+<script src="assets/jquery/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/nprogress/nprogress.js"></script>
+<script src="assets/artTemplate/template-native(1).js"></script>
+<script src="assets/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/userManage.js"></script>
+
+</html>

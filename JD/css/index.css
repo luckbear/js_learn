@@ -1,0 +1,228 @@
+.jd {
+    position: relative;
+    margin-bottom: 30px;
+}
+.jd-inner {
+    height: 480px;
+    position: relative;
+    z-index: 1;
+}
+.ad {
+    background: url(../images/bg.png) no-repeat top center;
+    height: 480px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ad a {
+    display: block;
+    height: 100%;
+}
+.jd-col1 {
+    width: 190px;
+    height: 465px;
+    padding-top: 15px;
+    margin-right: 10px;
+    float: left; 
+    background-color: #6e6568;
+}
+.jd-col1 li {
+    padding-left: 10px;
+    height: 28px;
+    line-height: 28px;
+}
+.jd-col1 li:hover {
+    background-color: #999395;
+}
+.jd-col1 li a {
+    color: #fff;
+    font-size: 14px;
+}
+.jd-col1 li span {
+    color: #fff;
+    font-size: 14px;
+}
+.jd-col2 {
+    width: 790px;
+    height: 480px;
+    float: left;
+}
+.jd-col2 ol {
+    width: 180px;
+    height: 20px;
+    background: rgba(255, 255 , 255, 0.3);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -90px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.jd-col2 .current {
+    background-color: #f10215;
+}
+.jd-col2 ol li {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 6px;
+    float: left;
+    margin: 4px 5px;
+}
+.jd-col2-hd {
+    position: relative;
+    height: 340px;
+    margin-bottom: 10px;
+}
+.arr-l,.arr-r {
+    width: 30px;
+    height: 60px;
+    color: #fff;
+    background: rgba(0, 0 , 0, 0.3);
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    font-family: "icomoon";
+    text-align: center;
+    line-height: 60px;
+}
+.arr-r {
+    right: 0;
+}
+.jd-col2-bd div {
+    width: 390px;
+    height: 130px;
+    float: left;
+}
+.first-pic {
+    margin-right: 10px;
+}
+.jd-col2-bd img {
+    width: 100%;
+}
+.jd-col3 {
+    width: 190px;
+    height: 480px;
+    float: right;
+    background-color: #fff;
+}
+.jd-col3 a {
+    color: #666;
+    font-size: 12px;
+}
+.user {
+    height: 88px;
+    padding-top: 62px;
+    text-align: center;
+    position: relative;
+}
+
+.user-avatar {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -32px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.user-avatar img {
+    width: 100%;
+}
+.user p {
+    font-size: 12px;
+}
+.login a:hover {
+    color: #f10215;
+}
+.user-profit{
+    margin-top: 10px;
+}
+.user-profit a {
+    display: inline-block;
+    width: 70px;
+    height: 25px;
+    margin: 0 5px;
+    border-radius: 13px;
+    height: 25px;
+    line-height: 25px;
+    /* box-shadow: 6px 8px 20px 
+    rgba(45, 45, 45, .15)； */
+}
+.user-profit .profit {
+    background: #d4d2d3;
+    color: #e43f3b;
+}
+.profit:hover {
+    color: #fff;
+    background-color: #e01222;
+}
+.user-profit .plus {
+    color: #e5d790;
+    background: #363634;
+}
+.plus:hover {
+    color: #fff;
+    background-color: #e01222;
+}
+.news {
+    height: 130px;
+}
+.news a:hover {
+    color: #f10215;
+}
+.news-tab {
+    padding-top: 8px;
+    position: relative;
+    line-height: 13px;
+}
+.news-tab a {
+    padding: 0 15px;
+}
+.news-tab .more {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+}
+.news-tab .news-first {
+    border-right: 1px solid #ccc;
+}
+.news-tab-line {
+    width: 27px;
+    height: 2px;
+    background-color: #f10215;
+    position: absolute;
+    left: 15px;
+    bottom: -1px;
+}
+.news-content {
+    margin: 0 15px;
+    padding-top: 8px;
+    overflow: hidden;
+}
+.news-content li {
+    line-height: 22px;
+}
+.j-service {
+    height: 190px;
+}
+.service-entry {
+    padding: 30px 11px 11px;
+}
+.service-list li {
+    width: 42px;
+    height: 55px;
+    float: left;
+
+}
+.service-list i {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/sprite_fs@1x.png) no-repeat;
+}
+.service-list a:hover {
+    color: #f10215;
+}

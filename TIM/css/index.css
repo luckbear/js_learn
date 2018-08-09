@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+.qq_nav {
+    height: 150px;
+    background: url(../images/nav_bg.png) repeat-x;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.wrapper {
+    width: 1080px;
+    height: 75px;
+    margin: 0 auto;
+}
+
+.wrapper .logo {
+    width: 100px;
+    height: 75px;
+    background: url(../images/nav_brand.png) no-repeat center;
+    float: left;
+}
+
+.wrapper .nav {
+    float: left;
+}
+
+.wrapper .nav li {
+    float: left;
+    font-size: 18px;
+    line-height: 75px;
+    margin-left: 20px;
+}
+
+.wrapper .nav li a {
+    display: block;
+    padding: 0 20px;
+}
+
+.wrapper .nav li a.current,
+.wrapper .nav li a:hover {
+    background-color: #12b7f5;
+}
+
+.wrapper .register {
+    float: right;
+    height: 36px;
+    width: 96px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+    background-color: #12b7f5;
+    color: #fff;
+    border-radius: 18px;
+    margin-top: 19px;
+}
+
+.wrapper .other {
+    float: right;
+    width: 250px;
+    height: 70px;
+}
+
+.wrapper .other li {
+    float: right;
+    margin-left: 40px;
+}
+
+.wrapper .other a {
+    font-size: 14px;
+    text-shadow: 0 0 2px #333;
+    height: 50px;
+    line-height: 50px;
+}
+
+.wrapper .other span {
+    float: right;
+}
+
+.banner {
+    height: 880px;
+    background: url(../images/banner-bg.jpg) no-repeat center top;
+    padding-top: 150px;
+}
+
+.banner img {
+    display: block;
+    margin: 20px auto 0;
+}
+
+.banner img:last-child {
+    width: 100%;
+}
+
+.sound h1 {
+    height: 300px;
+    background: url(../images/sound-text.png) no-repeat center/cover;
+    font-size: 0;
+}
+
+.sound .bg {
+    height: 500px;
+    background: url(../images/sound-bg.jpg) no-repeat center/cover;
+}
+
+.sound .content {
+    height: 500px;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.sound .iphone {
+    position: absolute;
+    left: 0;
+    top: -200px;
+    width: 700px;
+    height: 700px;
+    background: url(../images/sound-phone.png) no-repeat center top/cover;
+}
+
+.sound h2 {
+    float: right;
+    padding-top: 100px;
+    width: 500px;
+    text-align: right;
+    font-size: 40px;
+}
+
+.sound p {
+    float: right;
+    padding-top: 50px;
+    width: 500px;
+    text-align: right;
+    font-size: 18px;
+    text-shadow: 0 0 2px #333;
+}
+
+.file .bg {
+    height: 500px;
+    background: url(../images/file-bg.jpg) no-repeat center/cover;
+}
+
+.file .content {
+    height: 500px;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.file .mac {
+    width: 600px;
+    height: 340px;
+    background: url(../images/file-mac.png) no-repeat center/cover;
+    position: absolute;
+    right: -60px;
+    top: 100px;
+}
+
+.file h2 {
+    float: left;
+    padding-top: 100px;
+    width: 500px;
+    text-align: left;
+    font-size: 40px;
+    text-shadow: 0 0 2px #333;
+}
+
+.file p {
+    padding-top: 50px;
+    float: left;
+    width: 500px;
+    text-align: left;
+    font-size: 18px;
+    text-shadow: 0 0 2px #333;
+}
+
+.interest .bg {
+    height: 500px;
+    background: url(../images/interest-bg.jpg) no-repeat center/cover;
+}
+
+.interest .content {
+    height: 500px;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.interest .phone {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 350px;
+    height: 500px;
+    background: url(../images/interest-phone.png) no-repeat center top/cover;
+}
+
+.interest h2 {
+    float: right;
+    padding-top: 100px;
+    width: 500px;
+    text-align: right;
+    font-size: 40px;
+}
+
+.interest p {
+    padding-top: 50px;
+    float: right;
+    width: 500px;
+    text-align: right;
+    font-size: 18px;
+    text-shadow: 0 0 2px #333;
+}
+
+.foot {
+    height: 250px;
+    background: #2a2a2a;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 50px;
+    color: #666;
+}
+
+.plats {
+    width: 800px;
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+}
+
+.plats a {
+    float: left;
+    background: transparent url(../images/footer.png) no-repeat 10px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding-top: 50px;
+    width: 80px;
+    margin: 0 60px;
+}
+
+.plats a:hover {
+    color: #12b7f5;
+}
+
+.plats a.plmb {
+    background-position: 0 0;
+}
+
+.plats a.plmb:hover {
+    background-position: 0 -93px;
+}
+
+.plats a.plpc {
+    background-position: -105px 0;
+}
+
+.plats a.plpc:hover {
+    background-position: -105px -93px;
+}
+
+.plats a.plmac {
+    background-position: -210px 0;
+}
+
+.plats a.plmac:hover {
+    background-position: -210px -93px;
+}
+
+.plats a.plpad {
+    background-position: -326px 0;
+}
+
+.plats a.plpad:hover {
+    background-position: -326px -93px;
+}
+
+.sound .bg,.file .bg,.interest .bg {
+    background-attachment: fixed;
+}

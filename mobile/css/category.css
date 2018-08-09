@@ -1,0 +1,144 @@
+html,
+body {
+    height: 100%;
+}
+
+.containner {
+    width: 100%;
+    height: 100%;
+}
+
+.topBar {
+    width: 100%;
+    height: 45px;
+    background: url(../images/header-bg.png) 0 0 /1px 44px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.topBar .icon_pre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+    padding: 12px 10px;
+    background-origin: content-box;
+    background-clip: content-box;
+    background-position: -20px 0;
+}
+
+.topBar .icon_menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 44px;
+    padding: 12px 10px;
+    background-origin: content-box;
+    background-clip: content-box;
+    background-position: -60px 0;
+}
+
+.topBar form {
+    width: 100%;
+    padding: 0 40px;
+}
+
+.topBar input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-top: 7px;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    padding-top: 45px;
+}
+
+.main .left {
+    width: 90px;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.main .left li {
+    background-color: #f3f4f5;
+    width: 90px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.main .left .now {
+    background-color: #fff;
+    border-right: none;
+}
+
+.main .left li a {
+    display: block;
+}
+
+.main .left .now a {
+    color: #d8505c;
+}
+
+.main .right {
+    overflow: hidden;
+    height: 100%;
+    padding: 0 10px;
+}
+
+.main .banner {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.main .banner img {
+    display: block;
+    width: 100%;
+}
+
+.main h3 {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.main .hot {
+    width: 100%;
+}
+
+.main .hot ul {
+    width: 100%;
+}
+
+.main .hot li {
+    width: 33.333%;
+    float: left;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main .hot li a {
+    display: block;
+}
+
+.main .hot li img {
+    display: block;
+    width: 100%;
+}
+
+.main .hot span {
+    font-size: 12px;
+}
