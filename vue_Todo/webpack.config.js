@@ -52,7 +52,7 @@ const config = {
 if (isDev) {
     config.devtool = '#cheap-module-eval-source-map'
     config.devServer = {
-        port: 3006,
+        port: 3008,
         open: true,
         contentBase: 'src',
         hot: true,
