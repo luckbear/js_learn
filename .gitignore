@@ -3,6 +3,7 @@ vue-shop
 vue_Todo/node_modules
 webpack-study/node_modules
 webpack-vue/node_modules
+todos/node_modules
 
 .idea
 .vscode
