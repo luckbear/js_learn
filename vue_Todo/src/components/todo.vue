@@ -3,9 +3,9 @@
         <input type="text" placeholder="接下来要做什么"
         autofocus @keyup.enter="addItem" v-model="itemVal">
 
-        <item :itemList="itemList"> </item>
+        <item :itemList="filterItem"> </item>
 
-        <tabs></tabs>
+        <tabs :activeNum="activeNum" @toggleState="toggleState" @clean="cleanAll"></tabs>
     </div>
 </template>
 
@@ -17,9 +17,9 @@ export default {
   data() {
     return {
       id: 0, //每条item的id
-      completed: false, //item是否完成
       itemVal: "", //文本框中的输入值
-      itemList: [] //存储所有item
+      itemList: [], //存储所有item
+      filte: "all"
     };
   },
   methods: {
@@ -29,9 +29,27 @@ export default {
       this.itemList.unshift({
         id: this.id,
         content: this.itemVal.trim(),
-        completed: this.completed
+        completed: false
       });
-      this.itemVal=''
+      this.itemVal = "";
+    },
+    toggleState(state) {
+      this.filte = state;
+    },
+    cleanAll() {
+      this.itemList = this.itemList.filter(el => !el.completed);
+    }
+  },
+  computed: {
+    activeNum: function() {
+      return this.itemList.filter(el => el.completed === false).length;
+    },
+    filterItem: function() {
+      if (this.filte === "all") {
+        return this.itemList;
+      }
+      let completed = this.filte === "completed";
+      return this.itemList.filter(el => completed === el.completed);
     }
   },
   components: {

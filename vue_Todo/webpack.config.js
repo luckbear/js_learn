@@ -20,8 +20,9 @@ const config = {
             }
         }),
         new htmlWebpackPlugin({
+            title:'vue_todo',
             template: './src/index.html',
-            filename: 'index.html',
+            // filename: 'index.html',
         }),
         new vuePlugin()
     ],
