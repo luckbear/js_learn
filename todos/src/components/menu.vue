@@ -1,12 +1,12 @@
 <template>
 <div class="list-todos">
-    <a class="list-todo activeListClass list" v-for="item in items" :key="item.title"> 
+    <a @click="goList(item.id)" class="list-todo activeListClass list" :class="{'active':item.id===todoId}" v-for="item in items" :key="item.title"> 
         <span class="icon-lock" v-if="item.locked"></span>
-        <span class="count-list" v-if="item.count">{{item.count}}</span>
+        <span class="count-list" v-if="item.count>0">{{item.count}}</span>
         {{item.title}}
     </a>
 
-    <a class="link-list-new">
+    <a class="link-list-new" @click="addTodoList">
         <span class="icon-plus"></span>
         新增
     </a>
@@ -15,19 +15,43 @@
 
 
 <script>
+import { getTodoList, addTodo } from "../api/api.js";
 export default {
   data() {
     return {
-      items: [
-        { title: "星期一", count: 1, locked: true }, //菜单的模拟数据
-        { title: "星期二", count: 2, locked: true },
-        {
-          title: "星期三",
-          count: 3,
-          locked: false
-        }
-      ]
+      items: [],
+      todoId: "" //默认选中中的id
     };
+  },
+  created() {
+    getTodoList({}).then(res => {
+      const TODOS = res.data.todos;
+      this.items = TODOS;
+      this.todoId = TODOS[0].id;
+    });
+  },
+  methods: {
+    //点击菜单替换选中id
+    goList(id) {
+      this.todoId = id;
+    },
+    //点击新建按钮
+    addTodoList() {
+      addTodo({}).then(data => {
+        // 插入新的一条后再请求一次
+        getTodoList({}).then(res => {
+          const TODOS = res.data.todos;
+          this.items = TODOS;
+          this.todoId = TODOS[0].id;
+        });
+      });
+    }
+  },
+  watch:{
+    //监听用户点击的todoId
+    todoId:function(id){
+      this.$router.push({name:'todo',params:{id}})
+    }
   }
 };
 </script>

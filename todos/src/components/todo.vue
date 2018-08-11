@@ -9,7 +9,7 @@
       </div>
       <h1 class="title-page">
         <span class="title-wrapper">{{todo.title}}</span> <!-- 标题-->
-        <span class="count-list">{{todo.count}}</span><!-- 数目-->
+        <span class="count-list">{{todo.count||0}}</span><!-- 数目-->
       </h1>
       <div class="nav-group right"><!-- 右边的删除，锁定图标容器-->
         <div class="options-web"> 
@@ -33,7 +33,7 @@
     <div class="content-scrollable list-items">
       <!--容器下半部分-->
       <div v-for="item in items" :key="item.text">
-          <item :item="item"></item>
+          <item></item>
       </div>
 
     </div>
@@ -42,45 +42,51 @@
 
 
 <script>
-import item from './item.vue'
+import item from "./item.vue";
+import { getTodo } from "../api/api.js";
 export default {
   data() {
     return {
-      todo: {
-        //详情内容
-        title: "星期一",
-        count: 12,
-        locked: false
-      },
-      items: [
-        //代办单项列表
-        { checked: false, text: "新的一天", isDelete: false },
-        { checked: false, text: "新的2天", isDelete: false },
-        { checked: false, text: "新的3天", isDelete: false }
-      ],
+      todo: {},
+      items: [], //代办单项列表],
       text: "" //新增代办单项绑定的值
     };
   },
-  methods:{
-      addItem(){
-          this.items.unshift({
-              checked:false,
-              text:this.text,
-              isDelete:false
-          });
-          this.text=''
-
-      }
+  watch: {
+    "$route.params.id"() {
+      this.init();
+    }
   },
-  components:{
-      item,
+  created() {
+    this.init();
+  },
+
+  methods: {
+    addItem() {
+      this.items.unshift({
+        checked: false,
+        text: this.text,
+        isDelete: false
+      });
+      this.text = "";
+    },
+    init() {
+      const ID = this.$route.params.id;
+      getTodo({ id: ID }).then(res => {
+        this.todo=res.data.todo
+        this.items = res.data.todo.record;
+      });
+    }
+  },
+  components: {
+    item
   }
 };
 </script>
 
 
 <style lang="less">
-@import '../common/style/nav.less';
-@import '../common/style/form.less';
-@import '../common/style/todo.less';
+@import "../common/style/nav.less";
+@import "../common/style/form.less";
+@import "../common/style/todo.less";
 </style>
