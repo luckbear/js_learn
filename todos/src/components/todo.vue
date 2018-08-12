@@ -72,9 +72,12 @@ export default {
     },
     init() {
       const ID = this.$route.params.id;
+
       getTodo({ id: ID }).then(res => {
-        this.todo=res.data.todo
-        this.items = res.data.todo.record;
+        console.log(res);
+        
+        // this.todo = res.data.todo;
+        // this.items = res.data.todo.record;
       });
     }
   },

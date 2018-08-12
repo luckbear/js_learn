@@ -52,7 +52,7 @@ export default {
             } = config.params;
 
             let todo = Todos.find(todo => {
-                return id && todo.id === id
+                return id && (todo.id === id)
             })
 
             todo.count = todo.record.filter(data => !data.checked).length;
