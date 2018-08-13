@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import store from './vuex/store.js'
 
 import Mock from './moke/index.js'
 Mock.start()
@@ -15,4 +16,5 @@ var app = new Vue({
     el: '#app',
     render: v => v(App),
     router,
+    store
 })

@@ -20,3 +20,11 @@ export const getTodo = params => {
 export const addRecord = params =>{
     return axios.post('/todo/addRecord',params).then(res=>res.data)
 }
+
+export const editTodo = params=>{
+    return axios.post('/todo/editTodo',params).then(res=>res.data)
+}
+
+export const editRecord = params => {
+    return axios.post(`/todo/editRecord`, params).then(res => res.data);
+  };
