@@ -20,20 +20,26 @@ import { getTodoList, addTodo } from "../api/api.js";
 export default {
   data() {
     return {
-      todoId: "" //默认选中中的id
+      todoId: "", //默认选中的id
+      todoNum: 0 //todo的数量
     };
   },
-  computed:{
-    todoList(){
+  computed: {
+    todoList() {
+      const num = this.$store.getters.getTodoList.length;
+      if (num < this.todoNum) {
+        this.goList(this.$store.getters.getTodoList[0].id);
+      }
+      this.todoNum = num;
       return this.$store.getters.getTodoList;
     }
   },
   created() {
-    this.$store.dispatch('getTodo').then(()=>{
-      this.$nextTick(()=>{
+    this.$store.dispatch("getTodo").then(() => {
+      this.$nextTick(() => {
         this.goList(this.todoList[0].id);
-      })
-    })
+      });
+    });
   },
   methods: {
     //点击菜单替换选中id
@@ -42,20 +48,20 @@ export default {
     },
     //点击新建按钮
     addTodoList() {
-      addTodo({}).then(data => {    
+      addTodo({}).then(data => {
         // 插入新的一条后再请求一次
-        getTodoList({}).then(res => {
-          const TODOS = res.data.todos;
-          this.items = TODOS;
-          this.todoId = TODOS[TODOS.length-1].id;
+        this.$store.dispatch("getTodo").then(() => {
+          this.$nextTick(() => {
+            this.goList(this.todoList[this.todoList.length - 1].id);
+          });
         });
       });
     }
   },
-  watch:{
+  watch: {
     //监听用户点击的todoId
-    todoId:function(id){
-      this.$router.push({name:'todo',params:{id}})
+    todoId: function(id) {
+      this.$router.push({ name: "todo", params: { id } });
     }
   }
 };

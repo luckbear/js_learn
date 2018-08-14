@@ -14,7 +14,7 @@ export default {
             let mockTodo = Todos.map(todo => {
                 return {
                     id: todo.id,
-                    title: todo.id,
+                    title: todo.title,
                     count: todo.record.filter(data => !data.checked).length,
                     locked: todo.locked,
                     isDeleted: todo.isDeleted
@@ -99,7 +99,7 @@ export default {
                 if (t.id === todo.id) {
                     t.title = todo.title;
                     t.locked = todo.locked;
-                    t.isDelete = todo.isDelete;
+                    t.isDeleted = todo.isDeleted;
                     return true;
                 }
             });

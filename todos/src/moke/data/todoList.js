@@ -7,12 +7,12 @@ for (let i = 0; i < COUNT.length; i++){
     Todos.push(Mock.mock({
         id:Mock.Random.guid(),
         title:Mock.Random.first(),
-        isDelete:false,
+        isDeleted:false,
         locked:Mock.Random.boolean(),
         record:COUNT.map(()=>{
             return{
                 text:Mock.Random.cparagraph(2),
-                isDelete:false,
+                isDeleted:false,
                 checked:Mock.Random.boolean()
             };
         })

@@ -44,8 +44,8 @@
 
     <div class="content-scrollable list-items">
       <!--容器下半部分-->
-      <div v-for="item in items" :key="item.text">
-          <item :item="item"></item>
+      <div v-for="(item,index) in items" :key="item.text">
+          <item :item="item" :index="index" :id="todo.id" :locked="todo.locked" :init="init"></item>
       </div>
 
     </div>
@@ -85,10 +85,11 @@ export default {
          this.$store.dispatch('getTodo');
       });
     },
-    init() {
+    init() {    
       const ID = this.$route.params.id;
-
       getTodo({ id: ID }).then(res => {
+        console.log(res);
+        
         this.todo = res.data.todo;
         this.items = res.data.todo.record;
       });
@@ -98,7 +99,7 @@ export default {
       editTodo({
         todo: this.todo
       }).then(data => {              
-        _this.$store.dispatch("getTodo");
+        this.$store.dispatch("getTodo");
       });
     },
     updateTitle() {
